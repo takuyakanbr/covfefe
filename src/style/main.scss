@@ -1,0 +1,103 @@
+$font-stack: 'Muli', sans-serif;
+$color-bg: #efeff3;
+$color-bg-focus: #e9e9ed;
+$color-border: #dfcfe3;
+$color-border-focus: #cfbfd3;
+$color-primary: #770077;
+$color-bright: #991199;
+$text-default: 18px;
+$text-huge: 55px;
+
+@import url('https://fonts.googleapis.com/css?family=Muli');
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-stack;
+  background-color: $color-bg;
+  color: $color-primary;
+  font-size: $text-default;
+}
+div, p {
+  margin: 0;
+  padding: 0;
+}
+.clearfix {
+  clear: both;
+}
+.huge {
+  font-size: $text-huge;
+}
+.button {
+  margin-right: 6px;
+  padding: 5px 14px;
+  text-decoration: none;
+  color: $color-bg-focus;
+  background: $color-primary;
+  transition: all 0.25s;
+}
+.button:hover {
+  color: $color-bg;
+  background: $color-bright;
+}
+.show {
+  max-height: 100px;
+  transition: max-height 0.2s ease-in;
+}
+.hide {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.app {
+  width: 700px;
+  margin: 60px auto;
+}
+.toolbar {
+}
+.toolbar-controls {
+  display: flex;
+  align-items: flex-end;
+}
+.toolbar-text {
+  flex: 1;
+}
+.btn-generate, .btn-options {
+  float: right;
+  position: relative;
+  bottom: 0;
+}
+.output-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.output, .output-none {
+  margin: 8px 0;
+  border: 1px solid $color-border;
+  width: 32%;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  vertical-align: middle;
+  transition: all 0.25s;
+}
+.output:hover {
+  background-color: $color-bg-focus;
+  border: 1px solid $color-border-focus;
+}
+.filter-options {
+  background: $color-bg-focus;
+}
+.filter-options-cont {
+  padding: 20px;
+}
+.checkbox {
+  display: inline-block;
+  margin-right: 12px;
+}
+.endquote {
+  width: 100%;
+  text-align: right;
+}
