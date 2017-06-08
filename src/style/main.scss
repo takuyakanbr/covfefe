@@ -1,12 +1,20 @@
 $font-stack: 'Muli', sans-serif;
 $color-bg: #efeff3;
-$color-bg-focus: #e9e9ed;
+$color-bg-dark: #e9e9ed;
+$color-bg-darker: #e5e5ea;
 $color-border: #dfcfe3;
-$color-border-focus: #cfbfd3;
-$color-primary: #770077;
-$color-bright: #991199;
+$color-border-dark: #cfbfd3;
+$color-main-lighter: #aa11aa;
+$color-main-light: #991199;
+$color-main: #770077;
+$color-main-dark: #550055;
+$color-gray-light: #bbb;
+$color-gray: #888;
+$color-gray-dark: #666;
 $text-default: 18px;
+$text-small: 15px;
 $text-huge: 55px;
+$app-width: 700px;
 
 @import url('https://fonts.googleapis.com/css?family=Muli');
 html, body {
@@ -14,13 +22,16 @@ html, body {
   padding: 0;
   font-family: $font-stack;
   background-color: $color-bg;
-  color: $color-primary;
+  color: $color-main;
   font-size: $text-default;
 }
-div, p {
+div, p, ol, ul, li {
   margin: 0;
   padding: 0;
 }
+
+// util classes
+
 .clearfix {
   clear: both;
 }
@@ -31,13 +42,22 @@ div, p {
   margin-right: 6px;
   padding: 5px 14px;
   text-decoration: none;
-  color: $color-bg-focus;
-  background: $color-primary;
+  color: $color-bg-dark;
+  background: $color-main;
   transition: all 0.25s;
 }
 .button:hover {
   color: $color-bg;
-  background: $color-bright;
+  background: $color-main-light;
+}
+.link {
+  color: $color-gray-dark;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+.link:hover {
+  background-color: $color-gray-light;
+  color: $color-bg;
 }
 .show {
   max-height: 100px;
@@ -48,24 +68,80 @@ div, p {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+.content {
+  max-width: $app-width;
+  margin: 0 auto;
+  padding: 0 5px;
+}
+
+// layout
 
 .app {
-  width: 700px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.header {
+  flex-shrink: 0;
+  padding: 25px 0 10px;
+  background: $color-bg-dark;
+  background: linear-gradient(45deg, $color-bg-dark, $color-bg-darker);
+}
+.main-content {
+  flex-shrink: 0;
+  width: 100%;
   margin: 60px auto;
 }
-.toolbar {
+.spacer {
+  flex: 1;
 }
+.footer {
+  flex-shrink: 0;
+  position: relative;
+  padding: 60px 0;
+  background: $color-bg-dark;
+  background: linear-gradient(45deg, $color-bg-dark, $color-bg-darker);
+  color: $color-gray;
+  font-size: $text-small;
+}
+
+// header items
+
+.nav-bar {
+}
+.nav-option {
+  display: inline-block;
+  margin-right: 8px;
+}
+.nav-option a {
+  padding: 5px 8px;
+}
+.home-link {
+  color: $color-gray-dark;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.home-link:hover {
+  color: $color-main-light;
+}
+.nav-home {
+  font-size: 1.2em;
+}
+
+// footer items
+
+.link-github {
+  float: right;
+}
+
+// main page
+
 .toolbar-controls {
   display: flex;
   align-items: flex-end;
 }
 .toolbar-text {
   flex: 1;
-}
-.btn-generate, .btn-options {
-  float: right;
-  position: relative;
-  bottom: 0;
 }
 .output-area {
   display: flex;
@@ -74,9 +150,10 @@ div, p {
   margin: 10px 0;
 }
 .output, .output-none {
-  margin: 8px 0;
+  margin: 6px;
   border: 1px solid $color-border;
-  width: 32%;
+  min-width: $app-width * 0.3;
+  flex: 1 0;
   height: 52px;
   line-height: 52px;
   text-align: center;
@@ -84,11 +161,11 @@ div, p {
   transition: all 0.25s;
 }
 .output:hover {
-  background-color: $color-bg-focus;
-  border: 1px solid $color-border-focus;
+  background-color: $color-bg-dark;
+  border: 1px solid $color-border-dark;
 }
 .filter-options {
-  background: $color-bg-focus;
+  background: $color-bg-dark;
 }
 .filter-options-cont {
   padding: 20px;
@@ -100,4 +177,15 @@ div, p {
 .endquote {
   width: 100%;
   text-align: right;
+}
+
+@media(max-width: 580px) {
+  .toolbar-controls {
+    display: block;
+  }
+  .toolbar-buttons {
+    margin-top: 10px;
+    float: right;
+    position: relative;
+  }
 }

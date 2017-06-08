@@ -1,98 +1,52 @@
 
 import React from 'react';
-import loadGrammer from '../util/parser';
-import generate from '../util/generator';
-import OutputArea from './outputArea';
-import Toolbar from './toolbar';
+import {
+  HashRouter as Router,
+  Route,
+  Link,
+  Switch
+} from 'react-router-dom';
+import MainPage from './mainPage';
+import StoryPage from './storyPage';
+import UsagePage from './usagePage';
+import NotFoundPage from './notFoundPage';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      texts: [],
-      showOptions: false,
-      generatedWords: true,
-      combinedWords: true,
-      appendNumbers: false
-    };
-    this.generatedWords = true;
-    this.combinedWords = true;
-    this.appendNumbers = false;
-    this.count = 15;
-
-    loadGrammer((grammar) => {
-      this.grammar = grammar;
-      this.generateOutput();
-    }, (code) => {
-      this.error = code;
-    });
-  }
-
-  generateOutput() {
-    // determine what types to generate
-    let start = [];
-    if (this.generatedWords)
-      start.push('@genword');
-    if (this.combinedWords)
-      start.push('@comword');
-    if (this.appendNumbers)
-      for (let i = 0; i < start.length; i++)
-        start[i] = start[i] + '_n';
-
-    const texts = generate(this.grammar, start, this.count);
-    this.setState({ texts });
-  }
-
-  onGenerateButtonClick(e) {
-    e.preventDefault();
-    this.generateOutput();
-  }
-
-  onOptionsButtonClick(e) {
-    e.preventDefault();
-    this.setState((prevState) => {
-      return { showOptions: !prevState.showOptions };
-    });
-  }
-
-  onCheckboxChange(label, e) {
-    switch (label) {
-    case 1:
-      this.setState({
-        generatedWords: e.target.checked
-      });
-      this.generatedWords = e.target.checked;
-      break;
-    case 2:
-      this.setState({
-        combinedWords: e.target.checked
-      });
-      this.combinedWords = e.target.checked;
-      break;
-    case 3:
-      this.setState({
-        appendNumbers: e.target.checked
-      });
-      this.appendNumbers = e.target.checked;
-      break;
-    }
-    this.generateOutput();
-  }
-
-  render() {
-    return (
-      <div className="app">
-        <Toolbar onGenerate={ (e) => this.onGenerateButtonClick(e) }
-                 onOptions={ (e) => this.onOptionsButtonClick(e) }
-                 onCheckboxChange={ (label, e) => this.onCheckboxChange(label, e) }
-                 { ...this.state } />
-        <OutputArea texts={ this.state.texts }/>
-        <div className="endquote">
-          <span className="huge">&rdquo;</span>
+const App = () => (
+  <Router>
+    <div className="app">
+      <div className="header">
+        <div className="content">
+          <ul className="nav-bar">
+            <li className="nav-option nav-home"><Link to="/" className="home-link">Covfefe</Link></li>
+            <li className="nav-option"><Link to="/story" className="link">Story</Link></li>
+            <li className="nav-option"><Link to="/usage" className="link">Usage</Link></li>
+          </ul>
         </div>
       </div>
-    );
-  }
-}
+
+      <div className="content main-content">
+        <Switch>
+          <Route exact path="/" component={ MainPage }/>
+          <Route path="/story" component={ StoryPage }/>
+          <Route path="/usage" component={ UsagePage }/>
+          <Route component={ NotFoundPage }/>
+        </Switch>
+      </div>
+
+      <div className="spacer" />
+
+      <div className="footer">
+        <div className="content">
+          <p>Covfefe</p>
+          <span>&copy; 2017 Daniel Teo</span>
+          <a className="link link-github"
+             href="https://github.com/takuyakanbr/covfefe"
+             target="_blank"
+             rel='noreferrer noopener'>View on Github</a>
+        </div>
+      </div>
+    </div>
+  </Router>
+);
 
 export default App;

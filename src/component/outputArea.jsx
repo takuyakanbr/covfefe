@@ -7,7 +7,9 @@ class OutputArea extends React.Component {
   render() {
     if (this.props.texts.length === 0) {
       return (
-        <div className="output-area"><p className="output-none">covfefe</p></div>
+        <div className="output-area">
+          <p className="output-none">covfefe</p>
+        </div>
       );
     }
 

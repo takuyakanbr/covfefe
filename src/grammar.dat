@@ -33,7 +33,7 @@
 
 # output types
 @genword=@frt,@mid,@vw,@bck|@mid,@vw,@bck|@frt,@mid
-@comword=@part,@vw,@bck|@part,@bck|@frt,@vw,@part|@part,@part
+@comword=@part,@vw,@bck|@part,@bck|@frt,@vw,@part|@part,@part|@part,@vw,@part
 @genword_n=@genword,@rnum
 @comword_n=@comword,@rnum
 

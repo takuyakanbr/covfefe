@@ -14,10 +14,12 @@ class Toolbar extends React.Component {
           <div className="toolbar-text">
             <span className="huge">&ldquo;</span>Despite the constant negative press...
           </div>
-          <Button className="btn-generate" text="Generate" onClick={ this.props.onGenerate } />
-          <Button className={ 'btn-options toggle toggle-' +
-          (this.props.showOptions ? 'active' : 'inactive') } text="Options"
-                  onClick={ this.props.onOptions } />
+          <div className="toolbar-buttons">
+            <Button className="btn-generate" text="Generate" onClick={ this.props.onGenerate } />
+            <Button className={ 'btn-options toggle toggle-' +
+            (this.props.showOptions ? 'active' : 'inactive') } text="Options"
+                    onClick={ this.props.onOptions } />
+          </div>
         </div>
         <div className={ 'clearfix filter-options ' + (this.props.showOptions ? 'show' : 'hide') }>
           <div className="filter-options-cont">
