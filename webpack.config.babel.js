@@ -23,7 +23,7 @@ let config = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: isProd ? '/' : 'http://localhost:28990/',
+    publicPath: isProd ? '' : 'http://localhost:28990/',
     filename: 'bundle.js'
   },
   module: {
