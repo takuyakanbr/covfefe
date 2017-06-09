@@ -27,15 +27,17 @@
 @mid=@vw,@cs|@vw,@cs,@vw,@cs
 
 
-# partial words
+# words fragments
 @part=able|act|add|age|aid|ain|air|all|alt|alter|ant|apt|ard|arm|art|ask|auto|back|bage|bal|ban|bank|bar|base|bat|bate|beaut|ber|bi|big|bile|bill|bin|body|boh|bomb|bone|boo|bor|bort|bow|boy|bro|broad|bru|bud|build|bul|but|cab|cag|cak|cal|can|cam|camp|cap|car|care|cast|cat|cate|ceil|cede|cent|cept|cern|cham|char|chip|cho|cial|ciate|cip|cise|cog|com|con|cop|cot|craft|cru|cul|cult|cur|cute|cycle|dal|dam|dance|dark|dary|date|day|dead|deb|dem|demo|den|dent|der|dis|dit|doc|dom|don|down|dress|duct|earn|ease|end|ern|fact|fail|fan|fas|fect|feed|fend|fer|fit|fla|flex|ful|for|force|ford|form|fort|frag|free|friend|front|fur|fuse|gage|gar|gard|get|gin|go|gram|gre|gress|guise|guish|hab|half|hand|har|have|head|hen|hor|host|hot|hum|idea|ill|imp|in|inc|ing|ins|int|inv|is|jar|jet|job|jour|jur|just|ken|kern|ket|key|kin|know|lab|lap|late|lax|ledge|lean|leg|lem|lemma|lent|lest|let|lete|life|light|lim|line|list|lit|log|lone|long|loon|lot|low|lude|lust|lut|main|mail|mal|man|mand|mas|mate|maz|mean|ment|merg|met|mid|min|mire|mise|miss|mon|mond|mony|mor|mount|mum|mun|mus|mush|myst|nar|nary|new|nity|no|nomy|non|noon|not|nut|offi|open|ord|order|out|over|paign|pan|part|pay|pear|pel|pen|per|pet|pid|pion|pire|pit|plain|play|ploy|pop|por|pos|pot|pray|pre|pro|put|pute|port|quest|rac|rain|ral|range|rant|rate|ray|read|rect|rel|rest|rette|ria|rict|rid|rier|rin|ring|ris|roll|room|ross|round|rupt|science|scious|scribe|seem|sem|send|sess|seq|ship|side|sider|sig|sire|sis|sist|sit|site|sive|size|solve|some|spec|stance|stand|start|sub|sue|sult|sure|tach|tage|tail|tain|tal|tance|tant|tar|tas|tec|temp|tend|tent|ter|test|tic|tion|tive|ton|toon|top|tor|tran|trans|tro|try|tude|tur|ture|ual|up|under|vance|var|vas|vel|veil|ven|vent|ver|vers|vey|vice|vict|vir|void|voke|vote|wait|ward|way|ween|wit|xity|zen|zone
 
 
 # output types
 @genword=@frt,@mid,@vw,@bck|@mid,@vw,@bck|@frt,@mid
 @comword=@part,@vw,@bck|@part,@bck|@frt,@vw,@part|@part,@part|@part,@vw,@part
+@covfefe=cov,@part,@bck|cov,@vw,@bck|covfe,@bck|cov,@mid|cov,@vw,@part|co,@mid,@bck|@frt,@vw,fefe|@part,@vw,fefe|@part,fefe|@mid,@vw,fefe|@part,@vw,fe|@mid,@vw,fe
 @genword_n=@genword,@rnum
 @comword_n=@comword,@rnum
+@covfefe_n=@covfefe,@rnum
 
 # all-in-one
 @all=@genword|@comword

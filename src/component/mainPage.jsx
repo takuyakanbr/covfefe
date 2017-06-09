@@ -2,6 +2,7 @@
 import React from 'react';
 import loadGrammer from '../util/parser';
 import generate from '../util/generator';
+import Page from './page';
 import OutputArea from './outputArea';
 import Toolbar from './toolbar';
 
@@ -13,12 +14,14 @@ class MainPage extends React.Component {
       showOptions: false,
       generatedWords: true,
       combinedWords: true,
+      covfefeWords: true,
       appendNumbers: false
     };
     this.generatedWords = true;
     this.combinedWords = true;
+    this.covfefeWords = true;
     this.appendNumbers = false;
-    this.count = 15;
+    this.count = 18;
 
     loadGrammer((grammar) => {
       this.grammar = grammar;
@@ -31,10 +34,16 @@ class MainPage extends React.Component {
   generateOutput() {
     // determine what types to generate
     let start = [];
-    if (this.generatedWords)
+    if (this.generatedWords) {
       start.push('@genword');
-    if (this.combinedWords)
+      start.push('@genword');
+    }
+    if (this.combinedWords) {
       start.push('@comword');
+      start.push('@comword');
+    }
+    if (this.covfefeWords)
+      start.push('@covfefe');
     if (this.appendNumbers)
       for (let i = 0; i < start.length; i++)
         start[i] = start[i] + '_n';
@@ -58,21 +67,19 @@ class MainPage extends React.Component {
   onCheckboxChange(label, e) {
     switch (label) {
     case 1:
-      this.setState({
-        generatedWords: e.target.checked
-      });
+      this.setState({ generatedWords: e.target.checked });
       this.generatedWords = e.target.checked;
       break;
     case 2:
-      this.setState({
-        combinedWords: e.target.checked
-      });
+      this.setState({ combinedWords: e.target.checked });
       this.combinedWords = e.target.checked;
       break;
+    case 4:
+      this.setState({ covfefeWords: e.target.checked });
+      this.covfefeWords = e.target.checked;
+      break;
     case 3:
-      this.setState({
-        appendNumbers: e.target.checked
-      });
+      this.setState({ appendNumbers: e.target.checked });
       this.appendNumbers = e.target.checked;
       break;
     }
@@ -81,7 +88,7 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      <div className="page">
+      <Page>
         <Toolbar onGenerate={ (e) => this.onGenerateButtonClick(e) }
                  onOptions={ (e) => this.onOptionsButtonClick(e) }
                  onCheckboxChange={ (label, e) => this.onCheckboxChange(label, e) }
@@ -90,7 +97,7 @@ class MainPage extends React.Component {
         <div className="endquote">
           <span className="huge">&rdquo;</span>
         </div>
-      </div>
+      </Page>
     );
   }
 }

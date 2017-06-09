@@ -31,6 +31,10 @@ class Toolbar extends React.Component {
                       label={ 2 }
                       checked={ this.props.combinedWords }
                       onChange={ this.props.onCheckboxChange } />
+            <Checkbox text="More covfefe"
+                      label={ 4 }
+                      checked={ this.props.covfefeWords }
+                      onChange={ this.props.onCheckboxChange } />
             <Checkbox text="Append numbers"
                       label={ 3 }
                       checked={ this.props.appendNumbers }
@@ -48,6 +52,7 @@ Toolbar.propTypes = {
   onOptions: PropTypes.func.isRequired,
   generatedWords: PropTypes.bool.isRequired,
   combinedWords: PropTypes.bool.isRequired,
+  covfefeWords: PropTypes.bool.isRequired,
   appendNumbers: PropTypes.bool.isRequired,
   onCheckboxChange: PropTypes.func.isRequired
 };

@@ -1,20 +1,21 @@
 $font-stack: 'Muli', sans-serif;
-$color-bg: #efeff3;
-$color-bg-dark: #e9e9ed;
-$color-bg-darker: #e5e5ea;
+$color-bg: #efeff2;
+$color-bg-dark: #e9e9ec;
+$color-bg-darker: #e4e4e8;
 $color-border: #dfcfe3;
 $color-border-dark: #cfbfd3;
 $color-main-lighter: #aa11aa;
 $color-main-light: #991199;
 $color-main: #770077;
 $color-main-dark: #550055;
-$color-gray-light: #bbb;
+$color-gray-lighter: #bbb;
+$color-gray-light: #9f9f9f;
 $color-gray: #888;
 $color-gray-dark: #666;
 $text-default: 18px;
-$text-small: 15px;
 $text-huge: 55px;
-$app-width: 700px;
+$app-width: 800px;
+$output-minwidth: 210px;
 
 @import url('https://fonts.googleapis.com/css?family=Muli');
 html, body {
@@ -25,9 +26,32 @@ html, body {
   color: $color-main;
   font-size: $text-default;
 }
-div, p, ol, ul, li {
+header, main, footer, div, p, ol, ul, li {
   margin: 0;
   padding: 0;
+}
+p, li {
+  margin: 12px 0;
+  color: $color-gray;
+}
+li {
+  margin-left: 26px;
+}
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+h3 {
+  margin-top: 40px;
+}
+figure, img {
+  max-width: 100%;
+}
+figure {
+  margin: 25px;
+}
+figcaption {
+  color: $color-gray-light;
+  font-size: 0.9em;
 }
 
 // util classes
@@ -54,9 +78,10 @@ div, p, ol, ul, li {
   color: $color-gray-dark;
   text-decoration: none;
   transition: all 0.25s;
+  border-bottom: 1px solid $color-gray-lighter;
 }
 .link:hover {
-  background-color: $color-gray-light;
+  background-color: $color-gray-lighter;
   color: $color-bg;
 }
 .show {
@@ -68,11 +93,6 @@ div, p, ol, ul, li {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
-.content {
-  max-width: $app-width;
-  margin: 0 auto;
-  padding: 0 5px;
-}
 
 // layout
 
@@ -81,51 +101,65 @@ div, p, ol, ul, li {
   flex-direction: column;
   min-height: 100vh;
 }
-.header {
+.content {
+  max-width: $app-width;
+  margin: 0 auto;
+  padding: 0 5px;
+}
+header {
   flex-shrink: 0;
   padding: 25px 0 10px;
   background: $color-bg-dark;
   background: linear-gradient(45deg, $color-bg-dark, $color-bg-darker);
 }
-.main-content {
+main {
+  @extend .content;
   flex-shrink: 0;
   width: 100%;
-  margin: 60px auto;
+  margin: 65px auto;
+  box-sizing: border-box;
 }
 .spacer {
   flex: 1;
 }
-.footer {
+footer {
   flex-shrink: 0;
   position: relative;
-  padding: 60px 0;
+  padding: 55px 0;
   background: $color-bg-dark;
   background: linear-gradient(45deg, $color-bg-dark, $color-bg-darker);
   color: $color-gray;
-  font-size: $text-small;
+  font-size: 0.8em;
 }
 
 // header items
 
 .nav-bar {
+  font-size: 1.2em;
 }
 .nav-option {
   display: inline-block;
-  margin-right: 8px;
+  margin: 0 7px 0 0;
+  font-variant: small-caps;
+  text-transform: lowercase;
 }
 .nav-option a {
-  padding: 5px 8px;
+  padding: 3px 10px 5px;
+  border: none;
 }
 .home-link {
   color: $color-gray-dark;
   text-decoration: none;
   transition: all 0.3s;
 }
+.nav-option .home-link {
+  padding: 3px 8px 5px 0;
+}
 .home-link:hover {
   color: $color-main-light;
 }
 .nav-home {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 // footer items
@@ -134,8 +168,12 @@ div, p, ol, ul, li {
   float: right;
 }
 
-// main page
+// content
 
+.nav-next-page {
+  float: right;
+  margin-top: 25px;
+}
 .toolbar-controls {
   display: flex;
   align-items: flex-end;
@@ -152,7 +190,7 @@ div, p, ol, ul, li {
 .output, .output-none {
   margin: 6px;
   border: 1px solid $color-border;
-  min-width: $app-width * 0.3;
+  min-width: $output-minwidth;
   flex: 1 0;
   height: 52px;
   line-height: 52px;
@@ -160,12 +198,13 @@ div, p, ol, ul, li {
   vertical-align: middle;
   transition: all 0.25s;
 }
-.output:hover {
+.output:hover, .output-none:hover {
   background-color: $color-bg-dark;
   border: 1px solid $color-border-dark;
 }
 .filter-options {
   background: $color-bg-dark;
+  font-size: 0.9em;
 }
 .filter-options-cont {
   padding: 20px;
@@ -187,5 +226,10 @@ div, p, ol, ul, li {
     margin-top: 10px;
     float: right;
     position: relative;
+  }
+}
+@media(max-width: 450px) {
+  figure {
+    margin: 25px 0;
   }
 }

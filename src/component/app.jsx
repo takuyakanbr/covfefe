@@ -9,33 +9,36 @@ import {
 import MainPage from './mainPage';
 import StoryPage from './storyPage';
 import UsagePage from './usagePage';
+import HelpPage from './helpPage';
 import NotFoundPage from './notFoundPage';
 
 const App = () => (
   <Router>
     <div className="app">
-      <div className="header">
-        <div className="content">
+      <header>
+        <nav className="content">
           <ul className="nav-bar">
             <li className="nav-option nav-home"><Link to="/" className="home-link">Covfefe</Link></li>
-            <li className="nav-option"><Link to="/story" className="link">Story</Link></li>
-            <li className="nav-option"><Link to="/usage" className="link">Usage</Link></li>
+            <li className="nav-option"><Link to="/story" className="link">What</Link></li>
+            <li className="nav-option"><Link to="/uses" className="link">Why</Link></li>
+            <li className="nav-option"><Link to="/help" className="link">How</Link></li>
           </ul>
-        </div>
-      </div>
+        </nav>
+      </header>
 
-      <div className="content main-content">
+      <main>
         <Switch>
           <Route exact path="/" component={ MainPage }/>
           <Route path="/story" component={ StoryPage }/>
-          <Route path="/usage" component={ UsagePage }/>
+          <Route path="/uses" component={ UsagePage }/>
+          <Route path="/help" component={ HelpPage }/>
           <Route component={ NotFoundPage }/>
         </Switch>
-      </div>
+      </main>
 
       <div className="spacer" />
 
-      <div className="footer">
+      <footer>
         <div className="content">
           <p>Covfefe</p>
           <span>&copy; 2017 Daniel Teo</span>
@@ -44,7 +47,7 @@ const App = () => (
              target="_blank"
              rel='noreferrer noopener'>View on Github</a>
         </div>
-      </div>
+      </footer>
     </div>
   </Router>
 );
