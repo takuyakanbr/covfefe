@@ -1,12 +1,12 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Page from './page';
-import '../img/covfefe-tweet.png';
-import '../img/caught-tweet.png';
+import BasePage from './base';
+import '../static/covfefe-tweet.png';
+import '../static/caught-tweet.png';
 
 const StoryPage = () => (
-  <Page>
+  <BasePage>
     <h1>What&#39;s the story?</h1>
     <h3>Dawn of a new word</h3>
     <p>
@@ -50,7 +50,7 @@ const StoryPage = () => (
       gibberish words, exactly as Trump intended, and exactly as Trump did.
     </p>
     <p className="nav-next-page"><Link to="/uses" className="link">Why should you care?</Link></p>
-  </Page>
+  </BasePage>
 );
 
 export default StoryPage;

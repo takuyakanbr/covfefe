@@ -1,6 +1,6 @@
 
 import './style/main.scss';
-import './grammar.dat';
+import './static/grammar.dat';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

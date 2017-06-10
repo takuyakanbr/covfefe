@@ -6,11 +6,11 @@ import {
   Link,
   Switch
 } from 'react-router-dom';
-import MainPage from './mainPage';
-import StoryPage from './storyPage';
-import UsagePage from './usagePage';
-import HelpPage from './helpPage';
-import NotFoundPage from './notFoundPage';
+import MainPage from '../page/main';
+import StoryPage from '../page/story';
+import UsagePage from '../page/usage';
+import HelpPage from '../page/help';
+import NotFoundPage from '../page/notFound';
 
 const App = () => (
   <Router>

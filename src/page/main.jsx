@@ -2,9 +2,9 @@
 import React from 'react';
 import loadGrammer from '../util/parser';
 import generate from '../util/generator';
-import Page from './page';
-import OutputArea from './outputArea';
-import Toolbar from './toolbar';
+import BasePage from './base';
+import OutputArea from '../component/outputArea';
+import Toolbar from '../component/toolbar';
 
 class MainPage extends React.Component {
   constructor() {
@@ -88,7 +88,7 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      <Page>
+      <BasePage>
         <Toolbar onGenerate={ (e) => this.onGenerateButtonClick(e) }
                  onOptions={ (e) => this.onOptionsButtonClick(e) }
                  onCheckboxChange={ (label, e) => this.onCheckboxChange(label, e) }
@@ -97,7 +97,7 @@ class MainPage extends React.Component {
         <div className="endquote">
           <span className="huge">&rdquo;</span>
         </div>
-      </Page>
+      </BasePage>
     );
   }
 }

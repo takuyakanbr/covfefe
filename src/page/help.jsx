@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Page from './page';
+import BasePage from './base';
 
 const HelpPage = () => (
-  <Page>
+  <BasePage>
     <h1>How do I use this?</h1>
     <h3>Generate</h3>
     <p>
@@ -35,7 +35,7 @@ const HelpPage = () => (
       </li>
     </ul>
     <p className="nav-next-page"><Link to="/" className="link">Let&#39;s get started!</Link></p>
-  </Page>
+  </BasePage>
 );
 
 export default HelpPage;

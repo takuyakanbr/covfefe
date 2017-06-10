@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Page from './page';
+import BasePage from './base';
 
 const UsagePage = () => (
-  <Page>
+  <BasePage>
     <h1>Why should I care?</h1>
     <h3>Name it, ship it</h3>
     <p>
@@ -28,7 +28,7 @@ const UsagePage = () => (
       to your online store.
     </p>
     <p className="nav-next-page"><Link to="/help" className="link">How to use Covfefe?</Link></p>
-  </Page>
+  </BasePage>
 );
 
 export default UsagePage;

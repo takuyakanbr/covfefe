@@ -60,7 +60,7 @@ if (isProd) {
 
     new HtmlWebpackPlugin({
       template: 'src/index.ejs',
-      favicon: 'src/favicon.ico',
+      favicon: 'src/static/favicon.ico',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -84,7 +84,7 @@ if (isProd) {
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.ejs',
-      favicon: 'src/favicon.ico',
+      favicon: 'src/static/favicon.ico',
       minify: {
         removeComments: true,
         collapseWhitespace: true
