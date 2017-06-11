@@ -2,37 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-let nextId = 10;
-
-class Checkbox extends React.Component {
-
-  componentWillMount() {
-    this.cid = nextId++;
-  }
-
-  onChange(e) {
-    this.props.onChange(this.props.label, e);
-  }
-
-  render() {
-    return (
-      <div className="checkbox">
-        <input id={ 'checkbox-' + this.cid }
-               type="checkbox"
-               checked={ this.props.checked }
-               onChange={ (e) => this.onChange(e) }/>
-        <label htmlFor={ 'checkbox-' + this.cid }>{ this.props.text }</label>
-      </div>
-    );
-  }
-}
+const Checkbox = ({ name, checked, text, onChange }) => (
+  <div className="checkbox">
+    <input id={ 'checkbox-' + name }
+           type="checkbox"
+           checked={ checked }
+           onChange={ onChange } />
+    <label htmlFor={ 'checkbox-' + name }>{ text }</label>
+  </div>
+);
 
 Checkbox.propTypes = {
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  name: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 };
 

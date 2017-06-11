@@ -2,16 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class TextOutput extends React.Component {
-
-  render() {
-    return (
-      <div className="output">
-        { this.props.text }
-      </div>
-    );
-  }
-}
+const TextOutput = ({ text }) => (
+  <div className="output">{ text }</div>
+);
 
 TextOutput.propTypes = {
   text: PropTypes.string.isRequired
