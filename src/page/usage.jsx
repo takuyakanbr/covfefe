@@ -27,7 +27,7 @@ const UsagePage = () => (
       into the Twitter trending list, and the customers straight
       to your online store.
     </p>
-    <p className="nav-next-page"><Link to="/help" className="link">How to use Covfefe?</Link></p>
+    <p className="pagination float"><Link to="/help" className="link">How to use Covfefe?</Link></p>
   </BasePage>
 );
 

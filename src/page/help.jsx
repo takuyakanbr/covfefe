@@ -34,7 +34,7 @@ const HelpPage = () => (
         between 1 and 3 numbers at the end.
       </li>
     </ul>
-    <p className="nav-next-page"><Link to="/" className="link">Let&#39;s get started!</Link></p>
+    <p className="pagination float"><Link to="/" className="link">Let&#39;s get started!</Link></p>
   </BasePage>
 );
 

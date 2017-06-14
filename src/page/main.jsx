@@ -9,8 +9,8 @@ const MainPage = () => (
   <BasePage>
     <Toolbar />
     <OutputArea />
-    <div className="endquote">
-      <span className="huge">&rdquo;</span>
+    <div className="align-right">
+      <span className="huge-text">&rdquo;</span>
     </div>
   </BasePage>
 );

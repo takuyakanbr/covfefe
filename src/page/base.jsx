@@ -13,9 +13,9 @@ class BasePage extends React.Component {
 
   render() {
     return (
-      <article className="page">
+      <div className="l-page">
         { this.props.children }
-      </article>
+      </div>
     );
   }
 }

@@ -1,0 +1,33 @@
+
+@import '../modules/colors';
+
+.navbar {
+  font-size: 1.2em;
+}
+
+.navbar__option {
+  display: inline-block;
+  margin: 0 7px 0 0;
+}
+
+.navbar__link {
+  color: $color-gray-dark;
+  text-decoration: none;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  transition: all 0.3s;
+}
+.navbar__link--home {
+  padding: 3px 8px 5px 0;
+  font-size: 1.3em;
+}
+.navbar__link--small {
+  padding: 3px 10px 5px;
+}
+.navbar__link--home:hover {
+  color: $color-main-light;
+}
+.navbar__link--small:hover {
+  background-color: $color-gray-lighter;
+  color: $color-bg;
+}

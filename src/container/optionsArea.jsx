@@ -9,8 +9,9 @@ const mapStateToProps = (state) => ({
 });
 
 let OptionsArea = ({ showOptions }) => (
-  <div className={ 'clearfix filter-options ' + (showOptions ? 'show' : 'hide') }>
-    <div className="filter-options-cont">
+  <div className={ 'clearfix toolbar__options ' +
+    ('toolbar__options--' + (showOptions ? 'show' : 'hide')) }>
+    <div className="l-padded">
       <OptionsCheckbox name="generated" text="Generated words"/>
       <OptionsCheckbox name="combined" text="Combined words"/>
       <OptionsCheckbox name="covfefe" text="More covfefe"/>

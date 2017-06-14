@@ -7,11 +7,11 @@ import OptionsArea from '../container/optionsArea';
 
 const Toolbar = () => (
   <div className="toolbar">
-    <div className="toolbar-controls">
-      <div className="toolbar-text">
-        <span className="huge">&ldquo;</span>Despite the constant negative press...
+    <div className="toolbar__controls">
+      <div className="toolbar__text">
+        <span className="huge-text">&ldquo;</span>Despite the constant negative press...
       </div>
-      <div className="toolbar-buttons">
+      <div className="toolbar__buttons">
         <GenerateButton/>
         <OptionsButton/>
       </div>

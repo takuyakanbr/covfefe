@@ -1,0 +1,63 @@
+
+@import '../modules/all';
+
+.toolbar__controls {
+  display: flex;
+  align-items: flex-end;
+}
+
+.toolbar__text {
+  flex: 1;
+}
+
+@media(max-width: 580px) {
+  .toolbar__controls {
+    display: block;
+  }
+  .toolbar__buttons {
+    margin-top: 10px;
+    float: right;
+    position: relative;
+  }
+}
+
+.toolbar__options {
+  background: $color-bg-dark;
+  font-size: 0.9em;
+}
+.toolbar__options--show {
+  max-height: 130px;
+  transition: max-height 0.2s ease-in;
+}
+.toolbar__options--hide {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.output-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.output {
+  margin: 6px;
+  border: 1px solid $color-border;
+  min-width: $output-minwidth;
+  flex: 1 0;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  vertical-align: middle;
+  transition: all 0.25s;
+}
+.output:hover {
+  background-color: $color-bg-dark;
+  border: 1px solid $color-border-dark;
+}
+
+.pagination {
+  margin-top: 30px;
+}

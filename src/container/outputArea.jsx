@@ -12,7 +12,7 @@ let OutputArea = ({ texts }) => {
   if (texts.length === 0) {
     return (
       <div className="output-area">
-        <div className="output-none">covfefe</div>
+        <div className="output output--none">covfefe</div>
       </div>
     );
   }

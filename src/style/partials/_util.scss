@@ -1,0 +1,52 @@
+
+@import '../modules/all';
+
+.float {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.align-right {
+  width: 100%;
+  text-align: right;
+}
+
+.huge-text {
+  font-size: $text-huge;
+}
+
+.button {
+  margin-right: 6px;
+  padding: 5px 14px;
+  text-decoration: none;
+  color: $color-bg-dark;
+  background: $color-main;
+  transition: all 0.25s;
+}
+.button:hover {
+  color: $color-bg;
+  background: $color-main-light;
+}
+
+.link {
+  color: $color-gray-dark;
+  text-decoration: none;
+  transition: all 0.25s;
+  border-bottom: 1px solid $color-gray-lighter;
+}
+.link:hover {
+  background-color: $color-gray-lighter;
+  color: $color-bg;
+}
+
+.checkbox {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.l-padded {
+  padding: 20px;
+}

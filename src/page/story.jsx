@@ -49,7 +49,7 @@ const StoryPage = () => (
       Covfefe allows you to generate your own random nonsensical and
       gibberish words, exactly as Trump intended, and exactly as Trump did.
     </p>
-    <p className="nav-next-page"><Link to="/uses" className="link">Why should you care?</Link></p>
+    <p className="pagination float"><Link to="/uses" className="link">Why should you care?</Link></p>
   </BasePage>
 );
 
