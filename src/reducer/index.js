@@ -1,7 +1,8 @@
 
 import loadGrammer from '../util/parser';
 import generate from '../util/generator';
-import { update } from '../action/index';
+import { getParameterByName } from '../util/url';
+import { update, setOptions } from '../action/index';
 
 let grammar = null;
 
@@ -61,6 +62,13 @@ const reducer = (state = startState, action) => {
       options: opts
     });
   }
+  case 'SET_OPTIONS': {
+    let opts = Object.assign({}, state.options, action.options);
+    return Object.assign({}, state, {
+      output: generateOutput(opts),
+      options: opts
+    });
+  }
   default:
     return state;
   }
@@ -68,6 +76,25 @@ const reducer = (state = startState, action) => {
 
 
 export const initialize = (dispatch) => {
+
+  // set initial options
+  const opts = {
+    generated: false,
+    combined: false,
+    markov: false,
+    covfefe: false,
+    numbers: false
+  };
+  const param = getParameterByName('types');
+  if (param) {
+    const types = param.split(',');
+    for (const type of types) {
+      opts[type] = true;
+    }
+    dispatch(setOptions(opts));
+  }
+
+  // load grammar data
   loadGrammer((g) => {
     grammar = g;
     dispatch(update(0));

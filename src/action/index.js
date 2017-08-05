@@ -16,3 +16,8 @@ export const changeOptions = (name) => ({
   name,
   type: 'CHANGE_OPTIONS'
 });
+
+export const setOptions = (options) => ({
+  options,
+  type: 'SET_OPTIONS'
+});
