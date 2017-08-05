@@ -15,27 +15,38 @@ function appendInverse(list, items) {
   }
 }
 
-function generate(grammar, start, count) {
+// generates an output given the grammar and the starting rule
+function generateSingle(grammar, startRule) {
+  let output = '';
+  let stack = [startRule];
+
+  while (stack.length > 0) {
+    const next = stack.pop();
+
+    if (next in grammar) {
+      const items = getRandomItem(grammar[next]);
+      appendInverse(stack, items);
+    } else {
+      output += next;
+    }
+  }
+  return output;
+}
+
+// returns an array containing <count> generated outputs
+function generate(grammar, start, count, appendNumbers) {
   if (start.length === 0)
     return [];
 
   let result = [];
 
   for (let n = 0; n < count; n++) {
+    const startRule = getRandomItem(start);
     let output = '';
-    let stack = [ getRandomItem(start) ];
-
-    while (stack.length > 0) {
-      const next = stack.pop();
-
-      if (next in grammar) {
-        const items = getRandomItem(grammar[next]);
-        appendInverse(stack, items);
-      } else {
-        output += next;
-      }
-
-    }
+    while (output.length < 4 || output.length > 15)
+      output = generateSingle(grammar, startRule);
+    if (appendNumbers)
+      output += generateSingle(grammar, '@rnum');
     result.push(output);
   }
 

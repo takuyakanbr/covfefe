@@ -10,6 +10,7 @@ const startState = {
   options: {
     generated: true,
     combined: true,
+    markov: true,
     covfefe: true,
     numbers: false,
     output: 18
@@ -30,13 +31,14 @@ const generateOutput = options => {
     start.push('@comword');
     start.push('@comword');
   }
+  if (options.markov) {
+    start.push('@markov');
+    start.push('@markov');
+  }
   if (options.covfefe)
     start.push('@covfefe');
-  if (options.numbers)
-    for (let i = 0; i < start.length; i++)
-      start[i] = start[i] + '_n';
 
-  return generate(grammar, start, options.output);
+  return generate(grammar, start, options.output, options.numbers);
 };
 
 const reducer = (state = startState, action) => {

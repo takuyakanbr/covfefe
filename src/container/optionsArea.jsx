@@ -13,7 +13,8 @@ let OptionsArea = ({ showOptions }) => (
     ('toolbar__options--' + (showOptions ? 'show' : 'hide')) }>
     <div className="l-padded">
       <OptionsCheckbox name="generated" text="Generated words"/>
-      <OptionsCheckbox name="combined" text="Combined words"/>
+      <OptionsCheckbox name="combined" text="Combined words" />
+      <OptionsCheckbox name="markov" text="Markov generator" />
       <OptionsCheckbox name="covfefe" text="More covfefe"/>
       <OptionsCheckbox name="numbers" text="Append numbers"/>
     </div>

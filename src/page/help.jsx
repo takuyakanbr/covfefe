@@ -26,6 +26,12 @@ const HelpPage = () => (
         multiple word fragments, sometimes with a vowel group in between them.
       </li>
       <li>
+        <strong>Markov generator</strong> is a type of output built up by generating
+        successive characters based on the probabilities of the next letter, given the
+        previous 2 letters. This frequency data is calculated from 1 million sentences
+        taken from Wikipedia.
+      </li>
+      <li>
         <strong>More covfefe</strong> is a type of output that mixes a fragment of
         &quot;covfefe&quot; with other groups or fragments.
       </li>
